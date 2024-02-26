@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     global $users;
+//     return $users;
+// });
+Route::get('/users',function(){
+    global $users;
+    $userNames = array_column($users,'name');
+    return 'The user are: '. implode(' ,',$userNames);
 });
